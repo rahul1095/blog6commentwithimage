@@ -4,4 +4,4 @@ development:
   username: root
   password: root
   timeout: 5000
-  database: blogs6
+  database: blogs7

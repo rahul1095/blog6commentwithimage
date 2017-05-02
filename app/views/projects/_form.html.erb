@@ -18,10 +18,13 @@
 
   <div class="field">
     <%= f.label :document %>
-    <%= f.file_field :document %>
+    <%= f.file_field :document %></div>
   </div>
 
-  <%= f.select(:category_id, Category.all.collect {|u| [u.name, u.id]},:prompt => 'Select Category') %>
+  <%= f.select(:category_id, Category.all.collect {|u| [u.name, u.id]},:prompt => 'Select Category') %><br></br>
+
+<%=f.select "status", options_for_select([ "Avalable", "pending" ,"complete"], "complete"),:prompt => 'Select Status'=%></br></br>
+
   <div class="actions">
     <%= f.submit %>
   </div>
