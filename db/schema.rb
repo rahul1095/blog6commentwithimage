@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502113756) do
+ActiveRecord::Schema.define(version: 20170503101009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20170502113756) do
     t.string   "image"
     t.integer  "category_id"
     t.string   "status"
+    t.string   "active"
+    t.boolean  "ractive"
   end
 
   create_table "replies", force: :cascade do |t|

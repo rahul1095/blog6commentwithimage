@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+   <div class="form-group">
+        <label class="col-md-4 control-label" >name</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+           <%= f.text_field :name, :placeholder=>"name"%>
+          </div>
+        </div>
+      </div>
+
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -19,6 +28,13 @@
   <div class="field">
     <%= f.label :document %>
     <%= f.file_field :document %></div>
+ <div class="field">
+    <%= f.label :ractive %><br />
+    <%= f.label :ractive, "Yes", :value => "true"  %>
+    <%= f.radio_button :ractive, true ,:checked=>true%>
+    <%= f.label :ractive, "No", :value => "false" %>
+    <%= f.radio_button :ractive, false, :checked => true %>
+  </div>
   </div>
 
   <%= f.select(:category_id, Category.all.collect {|u| [u.name, u.id]},:prompt => 'Select Category') %><br></br>

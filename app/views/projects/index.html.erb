@@ -1,18 +1,19 @@
 <p id="notice"><%= notice %></p>
 <% if params[:search].present? || params[:category].present?%>
-   <%= @projects.count %> Results found.
+   <%= @projects.count %> Results found
    <% else %>
    no result found
   <% end %>
 <h1>Projects</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Name</th>
+      <th>status</th>
       <th>Document</th>
        <th>category</th>
-        <th>status</th>
+      <th>email_id</th>
       <th colspan="3"></th>
 
     </tr>
@@ -20,29 +21,33 @@
 
   <tbody>
     <% @projects.each do |project| %>
+  
       <tr>
         <td><%= project.name %></td>
          <td><%= project.status%></td>
-        <% if project.document.present? %>
-          <td>
-      <a href="<%=project.document.url %>"><%=  project.document.file.original_filename %></a>
-   </td>
 
-        <td>
-        <%if project.category_id.present? %>
-            <%=Category.find(project.category_id).name %>
-            </td>
-        <% end %>
+         <% if project.document.present? %> 
+        <td> <%= project.document.file.original_filename %></td>
+          <%end%>
+
+        <% if project.category_id.present? %> 
+     <td><%=Category.find(project.category_id).name %></td>
+         <%end%>
+
+        <td> <%= project.members.collect(&:user).compact.flatten.collect(&:email) %> </td>
         
-      <%end%>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
+        
+          
+        <td><%= link_to 'Show', project ,:class=>"btn btn-default"%></td>
+        <td><%= link_to 'Edit', edit_project_path(project),:class=>"btn btn-primary" %></td>
+      <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-danger" %></td>
+
       </tr>
+     
     <% end %>
+    
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Project', new_project_path %>

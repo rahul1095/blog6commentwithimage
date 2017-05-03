@@ -1,6 +1,7 @@
 class MembersController < ApplicationController
 	def index
 		@members=Member.all
+		
 	end
 	def new
 		@project= Project.find(params[:project_id])
@@ -8,11 +9,15 @@ class MembersController < ApplicationController
 	end
 
 	def create
-	@project= Project.find(params[:project_id])
-	@member=@project.members.create(member_params)
+	  @project= Project.find(params[:project_id])
+	  @member=@project.members.create(member_params)
+      #  redirect_to project_member_path(@project,@member)
+      redirect_to projects_path
+       end
 
-	redirect_to project_path(@project)
-
+   def show
+		@project= Project.find(params[:project_id])
+		@member= Member.find(params[:id])
 	end
 
 	private
