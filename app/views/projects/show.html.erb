@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
-
+<% if params[:search].present? %>
+   <%= @projects.count %> Results found.
+   <% else %>
+   no result found
+  <% end %>
 <p>
   <strong>Name:</strong>
   <%= @project.name %>
 </p>
-
+      
+<p>
+    <%= link_to 'member', new_project_member_path(@project) ,:class => "btn btn-primary"%>
+</p>
+     
 </p>
   <strong>document:</strong>
 <% if @project.document.present? %>
-<a href="<%=@project.document.url %>"><%=  @project.document.file.original_filename %></a>
+<a href="<%=@project.document.url %>"><%= @project.document.file.original_filename %></a>
   <% end %>
  </p>
 
