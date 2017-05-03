@@ -53,7 +53,7 @@
 
       <%= text_field_tag :search, params[:search] , :placeholder => "Type here to search"%>
       <%= select_tag "category", options_from_collection_for_select(Category.all, 'id', 'name'),:prompt=>'select category'%>  
-      <%= submit_tag "Search", :class=>"btn btn-success"%>
+      <%= submit_tag "Search", :class=>"btn btn-success btn-xs"%>
      <%end%>
     </div>
             
@@ -69,3 +69,4 @@
   </body>
 </html>
 
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
