@@ -1,23 +1,41 @@
 <%= form_for([@project, @project.comments.build],:remote => true) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-
-  <p>
-    <%= f.label :image %><br>
-    <%= f.file_field :image,:class=>"img-responsive" %>
-  </p>
  
-  <p>
-    <%= f.submit %>
-  </p>
+<div style="margin-bottom: 25px"class="form-group">
+        <label class="col-md-4 control-label">commenter</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <%= f.text_field :commenter,:placeholder=>"commenter",:class=>"form-control" %></br>
+          </div>
+        </div>
+      </div>
+     </br></br>
 
+   <div style="margin-bottom: 25px"class="form-group">
+        <label class="col-md-4 control-label">body</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+          <%= f.text_field :body,:placeholder=>"comment here",:class=>"form-control" %></br>
+          </div>
+        </div>
+      </div>
+     </br></br>
+  
+  <div class="form-group">
+        <label class="col-md-4 control-label">Document</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip"></i></span>
+          <%= f.file_field :image,:class=>"form-control",:class=>"img-rounded" %></br>
+          </div>
+        </div>
+      </div>
+     </br></br>
+  
+   <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-6  inputGroupContainer">
+         <%= f.submit :class=>"btn btn-success" %>
+          </div>
+        </div>
    <p>
    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   </p>

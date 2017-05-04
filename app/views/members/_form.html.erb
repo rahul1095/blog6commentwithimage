@@ -1,12 +1,25 @@
+<div class="container">
 <%= form_for ([@project, @member]) do |m| %>
-<p>
-<%= m.label :user %>   
-<br>
-<%= m.select(:user_id, User.all.collect {|u| [u.email, u.id]}, :prompt => 'Select User') %> 
-</p>
-<p><%= m.hidden_field :project_id,  :value=> @project.id %>
-</p>
-<div class="actions">
-    <%= m.submit %>
-</div>
+
+
+<div class="form-group">
+        <label class="col-md-4 control-label">user</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+  <%= m.select(:user_id, User.all.collect {|u| [u.email, u.id]}, :prompt => 'Select User') %> 
+          </div>
+        </div>
+      </div>
+      </br></br>
+
+<%= m.hidden_field :project_id,  :value=> @project.id %>
+
+<div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-6  inputGroupContainer">
+         <%= m.submit :class=>"btn btn-success" %>
+          </div>
+        </div>
+        </br></br>
 <% end %>
+</div>
