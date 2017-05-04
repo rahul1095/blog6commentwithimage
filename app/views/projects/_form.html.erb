@@ -19,17 +19,17 @@
           </div>
         </div>
       </div>
-     
+     </br></br>
 
 <div class="form-group">
         <label class="col-md-4 control-label">Document</label>
         <div class="col-md-6  inputGroupContainer">
-          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip"></i></span>
           <%= f.file_field :document,:class=>"form-control" %></br>
           </div>
         </div>
       </div>
-
+     </br></br>
  
 
    <div class="form-group">
@@ -40,16 +40,17 @@
           </div>
         </div>
       </div>
-
+      </br></br>
 
        <div class="form-group">
-        <label class="col-md-4 control-label">select category</label>
+        <label class="col-md-4 control-label">select status</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-       <%=f.select "status", options_for_select([ "Avalable", "pending" ,"complete"], "complete"),:prompt => 'Select Status'=%>
+       <%=f.select "status", options_for_select([ "Available", "pending" ,"complete"], "complete"),:prompt => 'Select Status'%>
           </div>
         </div>
       </div>
+     </br></br>
 
       <div class="form-group">
         <label class="col-md-4 control-label">ractive</label>
@@ -61,15 +62,16 @@
     <%= f.radio_button :ractive, false, :checked => true %> 
        </div>
         </div>
+        </br></br>
     
  
           <div class="form-group">
         <label class="col-md-4 control-label"></label>
         <div class="col-md-6  inputGroupContainer">
-          
          <%= f.submit :class=>"btn btn-success" %>
           </div>
         </div>
+        </br></br>
      <% end %>
 <script type="text/javascript">
  
@@ -103,24 +105,17 @@
                 }
             },
            
-            "project[category_id]": 
-             {
+           "project[category_id]": {
                 validators: {
-                     stringLength: {
-                        min: 4,
-                    },
                     notEmpty: {
-                        message: 'Please supply your city'
+                        message: 'Please select your category'
                     }
                 }
             },
             "project[status]": {
                 validators: {
-                     stringLength: {
-                        min: 8,
-                    },
                     notEmpty: {
-                        message: 'Please select status'
+                        message: 'Please select your status'
                     }
                 }
             },

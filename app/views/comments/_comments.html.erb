@@ -1,3 +1,4 @@
+<div class="container">
 <%@project.comments.each do |comment|%> 
 <p>
   <strong>Commenter:</strong>
@@ -10,7 +11,7 @@
 </p>
 <p>
  <strong>image:</strong>
-    <%=image_tag comment.image,:height=>"150", :width=>"150" %>
+    <%=image_tag comment.image,:class=>"img-responsive",:height=>"150", :width=>"150" %>
   </p>
   <p>
  
@@ -32,3 +33,4 @@
  </div>
 <%= render 'replies/form', :comment=>comment %>
 <%end%>
+</div>

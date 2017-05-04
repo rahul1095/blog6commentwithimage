@@ -1,3 +1,4 @@
+
 <%= form_for(category) do |f| %>
   <% if category.errors.any? %>
     <div id="error_explanation">
@@ -11,17 +12,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+<div style="margin-bottom: 25px"class="form-group">
+        <label class="col-md-4 control-label">First Name</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <%= f.text_field :name,:placeholder=>"Name",:class=>"form-control" %></br>
+          </div>
+        </div>
+      </div>
+      </br></br>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+<div style="margin-bottom: 25px"class="form-group">
+        <label class="col-md-4 control-label">Description</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <%= f.text_field :description,:placeholder=>"Description",:class=>"form-control" %></br>
+          </div>
+        </div>
+      </div>
+      </br></br>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-6  inputGroupContainer">
+         <%= f.submit :class=>"btn btn-success" %>
+          </div>
+        </div>
+        </br></br>
 <% end %>
